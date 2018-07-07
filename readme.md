@@ -1,5 +1,5 @@
 # gulp-sequence-cmd-commend
-This a sequential cmd commend runner which runs multiple commends one after one
+This is a sequential cmd commend runner which runs multiple commends one after one
 
 ### example 
 ```javascript
