@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dest",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es6"
+  }
+}

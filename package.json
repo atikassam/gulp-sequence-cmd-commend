@@ -1,0 +1,21 @@
+{
+  "name": "gulp-sequence-cmd-commend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp build"
+  },
+  "author": "Atikur Rahman",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^10.5.2",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^5.0.0-alpha.3",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "rxjs": "^6.2.1",
+    "shelljs": "^0.8.2"
+  }
+}
