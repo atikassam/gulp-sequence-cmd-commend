@@ -42,6 +42,7 @@ export class CommendRunner {
         this.current_subscription = Observable.create((observer: Observer<any>) => {
 
             commend_index = this.reset ? 0 : commend_index;
+            this.reset = false;
 
             let commend = this.commends[commend_index];
             if (!commend) return;

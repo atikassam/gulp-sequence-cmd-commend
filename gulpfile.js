@@ -35,7 +35,7 @@ const TASK = new CommendRunner([
 gulp.task('start:watch', () => {
     // Run build commend on file change
     let watcher = gulp.watch('./src/**/*.ts');
-    watcher.on('change', () => TASK.runWithInterval(1500));
+    watcher.on('change', () => TASK.runWithInterval(3000));
     TASK.run()
 });
 
