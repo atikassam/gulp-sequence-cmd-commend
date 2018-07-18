@@ -1,6 +1,6 @@
 {
   "name": "gulp-sequence-cmd-commend",
-  "version": "0.0.2-b",
+  "version": "0.0.2-c",
   "description": "",
   "main": "dest/index.js",
   "scripts": {

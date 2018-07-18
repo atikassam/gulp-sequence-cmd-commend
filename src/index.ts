@@ -49,11 +49,11 @@ export class CommendRunner {
 
             this.running_process = exec(commend.cmd, (err, stdout, stdin) => {
                 this.safeCall(commend.onDone, err, stdout, stdin);
+                this.running_process = undefined;
+
                 if (!err) {
                     observer.next({ commend_index: commend_index + 1 });
                 }
-
-                this.running_process = undefined;
             });
 
             this.running_process.on('data', (data) => this.safeCall(commend.onData, data));
