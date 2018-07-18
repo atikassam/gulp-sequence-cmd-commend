@@ -13,19 +13,19 @@ export interface Commentd {
 
 export class CommendRunner {
     private running_process;
-    private current_task = 0;
     private current_subscription;
     private exec_timer;
+    private reset = false;
 
     constructor(private commends: Commentd[]) {}
 
     run() {
-        this.current_task = 0;
+        this.reset = true;
 
         if (this.running_process) {
             this.running_process.kill();
         } else {
-            this.exec();
+            this.exec({ commend_index: 0 });
         }
     }
 
@@ -38,16 +38,18 @@ export class CommendRunner {
     }
 
 
-    private exec(): void {
+    private exec({ commend_index = 0 }): void {
         this.current_subscription = Observable.create((observer: Observer<any>) => {
-            let commend = this.commends[this.current_task];
+
+            commend_index = this.reset ? 0 : commend_index;
+
+            let commend = this.commends[commend_index];
             if (!commend) return;
 
             this.running_process = exec(commend.cmd, (err, stdout, stdin) => {
                 this.safeCall(commend.onDone, err, stdout, stdin);
                 if (!err) {
-                    this.current_task++;
-                    observer.next({});
+                    observer.next({ commend_index: commend_index + 1 });
                 }
 
                 this.running_process = undefined;
